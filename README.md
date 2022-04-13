@@ -72,10 +72,8 @@
 
 * **BL Pin**은 LCD의 백라이트 핀으로 상태가 set이 되어야 켜집니다. 추가적으로 PWM을 지원하는 핀을 이용하여 BL핀을 연결한다면 백라이트의 밝기를 조절할 수 있습니다.
 
-<br><br> 
+<br>
 
- 
-    
-
-<p align="center"><img src="https://user-images.githubusercontent.com/70312248/163223279-9121a9de-727c-47f3-ade3-f325440e065b.png"> </p>
+ [크게 보기](https://github.com/taejin-seong/STM32F103VET6-TFT-LCD-with-Resistive-Touch-Screen/blob/master/imgs/%ED%95%80%20%EC%97%B0%EA%B2%B0.png)<br>
+<p align="center"><img src="https://github.com/taejin-seong/STM32F103VET6-TFT-LCD-with-Resistive-Touch-Screen/blob/master/imgs/%ED%95%80%20%EC%97%B0%EA%B2%B0.png"> </p>
 <br><br>
