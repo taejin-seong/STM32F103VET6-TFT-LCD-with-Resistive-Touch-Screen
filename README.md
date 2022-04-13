@@ -21,11 +21,20 @@
   + :pushpin: [이미지 링크 및 구매처](https://a.aliexpress.com/_mPmlxdu) <br>
   
   + :pushpin: [해당 TFT LCD관련 자료 종합](http://www.lcdwiki.com/3.2inch_16BIT_Module_ILI9341_SKU:MRB3205)<br>
-    - 해당 LCD 위키 사이트로 가는 링크입니다. 링크를 접속하시면 해당 TFT LCD모듈에 대한 간단한 Overview 부터 User Manual. ILI9341 driver 데이터 시트, XPT2406 IC 데이터 시트 그리고 예제 등을 확인해보실 수 있습니다. <br>
+    - 해당 LCD 위키 사이트로 가는 링크입니다. 링크를 접속하시면 해당 TFT LCD모듈에 대한 간단한 Overview 부터 User Manual. ILI9341 driver IC 데이터 시트, XPT2406 touch IC 데이터 시트 그리고 예제 등을 확인해보실 수 있습니다. <br>
     
-  + :pushpin: 사용한 TFT LCD 모듈의 아주 간단한 스펙은 다음과 같습니다. (자세한 스펙은 데이터시트를 참고하시길 바랍니다.)<br>
-    - 8-bit/16-bit의 FSMC 인터페이스를 지원하여 ILI9341 드라이버 (LCD 드라이버)를 제어할 수 있습니다. 기본으로 16-bit Data Bus이며, 아래와 같이 R8의 저항을
-    - <img src="https://user-images.githubusercontent.com/70312248/163130781-470699c0-dcd2-41bd-8334-20412fc8dda7.png" width="400" height="300"/><br>  
-    
+  + 사용한 TFT LCD 모듈의 **간단한 스펙 설명**은 다음과 같습니다. (자세한 스펙은 데이터시트를 참고하시길 바랍니다.)<br>
+    - FSMC 또는 FMC라 불리며 Flexible Static Memory Controller를 의미합니다. FSMC는 NOR/SRAM, NAND/PC CARD 같은 외부 메모리 칩들을 병렬 인터페이스하여 컨트롤 하는 페리페럴입니다. 참고로 LCD의 직렬 인터페이스 방식에서는 SPI가 많이 쓰이며, 병렬 인터페이스 방식에서는 FSMC가 많이 쓰입니다. 병렬 인터페이스가 직렬 인터페이스보다는 고속이게 됩니다.
+    - STM32F10X FSMC에 상세한 내용은 아래 문서명을 참고하세요
+      +  ***TFT LCD interfacing with the high-density STM32F10xxx FSMC*** 
+      +  ***RM0008 Reference Manual 507p~565p*** <br>
+   
+    - 해당 TFT LCD모듈은 8-bit/16-bit의 FSMC 인터페이스를 지원하며 이를 통해 ILI9341 driver IC (LCD 드라이버)를 제어할 수 있습니다. 기본으로 16-bit 이며 아래 그림과 같이 R8, R16 저항을 통해 8-bit로 FSMC 인터페이스 시킬 수 있습니다. <br><br>
+    <p align="center">
+    <img src="https://user-images.githubusercontent.com/70312248/163138148-869e9ddc-a826-4a44-9d43-6ede85dcafac.png" width="650" height="450"/> </p><br>  
+
+    - 해당 TFT LCD모듈은 감압식 터치 패널이며 이는 누른 좌표점을 얻어내어 터치를 제어하는 형식입니다. (보통 정전식을 더 많이 사용합니다.) 이를 위해 SPI 인터페이스의 XPT2406 touh IC를 이용하여 터치스크린을 제어합니다.<br><br>
+    - 또한 TFT LCD모듈에는 SDCS (SD카드 선택제어핀)이 있으므로 SD카드의 프로토콜 방식인 SDIO/SPI 중 SPI를 이용해 XPT2406에 SPI 슬레이브를 하나더 추가하여 SD카드를 사용한 비트맵, JPEG 출력 등을 시도해 볼 수 있습니다. **해당 프로젝트에서는 SD카드 관련 제어를 구현하지 않았습니다.** <br><br>
+    - 해당 TFT LCD User Manual을 통해 Pin Description를 이해하기 전에 **FSMC 인터페이스에 대한 학습이 필요합니다.**<br><br>   
   
 <br>
