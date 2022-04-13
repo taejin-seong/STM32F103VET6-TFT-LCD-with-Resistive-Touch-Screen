@@ -3,8 +3,6 @@
 * STM32CubeIDE 1.6.0 <br>
 * STM32CubeMX <br>
 
-<br>
-
 ### 개발 보드
 * **STM32F103VET6 Custom Development Board** <br>
   + :pushpin: [이미지 링크 및 구매처](https://ko.aliexpress.com/item/32693544239.html?gatewayAdapt=glo2kor&srcSns=sns_KakaoTalk&spreadType=socialShare&bizType=ProductDetail&social_params=20527276655&aff_fcid=6a92134b6f66447fb4e5392261410de1-1649825428883-09137-_mMqvBK2&tt=MG&aff_fsk=_mMqvBK2&aff_platform=default&sk=_mMqvBK2&aff_trace_key=6a92134b6f66447fb4e5392261410de1-1649825428883-09137-_mMqvBK2&shareId=20527276655&businessType=ProductDetail&platform=AE&terminal_id=62559df8374f42348f14bc09e497c7f3&afSmartRedirect=y)<br>
@@ -15,7 +13,6 @@
      <p align="center">
      <img src="https://user-images.githubusercontent.com/70312248/163129584-df167919-aa90-44d1-8b6c-c36210542ddc.png" width="450" height="330"/>     
      <img src="https://user-images.githubusercontent.com/70312248/163130781-470699c0-dcd2-41bd-8334-20412fc8dda7.png" width="400" height="300"/> </p><br>
-<br>
  
 ### TFT LCD 모듈 
 * **3.2inch 16BIT Module ILI9341 SKU-MRB3205** <br>
@@ -30,7 +27,7 @@
       +  ***TFT LCD interfacing with the high-density STM32F10xxx FSMC*** 
       +  ***RM0008 Reference Manual 507p~565p*** <br>
    
-    - 해당 TFT LCD모듈은 8-bit/16-bit의 FSMC 인터페이스를 지원하며 이를 통해 ILI9341 driver IC (LCD 드라이버)를 제어할 수 있습니다. 기본으로 16-bit 이며 아래 그림과 같이 R8, R16 저항을 통해 8-bit로 FSMC 인터페이스 시킬 수 있습니다. <br><br>
+    - 해당 TFT LCD모듈은 8-bit/16-bit 데이터 버스의 FSMC 인터페이스를 지원하며 이를 통해 ILI9341 driver IC (LCD 드라이버)를 제어할 수 있습니다. **기본적으로 16-bit 데이터 버스** 이며 아래 그림과 같이 R8, R16 저항을 통해 8-bit로 FSMC 인터페이스 시킬 수 있습니다. <br><br>
     
     <p align="center">
     <img src="https://user-images.githubusercontent.com/70312248/163138148-869e9ddc-a826-4a44-9d43-6ede85dcafac.png" width="650" height="450"/> </p><br>  
