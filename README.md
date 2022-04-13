@@ -50,7 +50,7 @@
   - FSMC NEx      = FSMC **C**hip **S**elect 
   - FSMC NOE      = FSMC **O**utput **E**nable
   - FSMC NWE      = FSMC **W**rite **E**nable
-  - FSMC Ax       = LCD Register와 LCD Data를 선택하기 위한 **Address line (0~25)** (LCD의 RS핀과 연결) High일떄 레지스터 / Low일떄 데이터 <br>
+  - FSMC Ax       = LCD Register와 LCD Data를 선택하기 위한 **Address line (0~25)** (LCD의 RS핀과 연결) High일때 레지스터 / Low일때 데이터 <br>
     
 * NEx, NOE, NWE 앞에 붙은 **N은 Active Low**를 의미합니다.<br>
 * 본 프로젝트에서는 STM32F103VET6의 FSMC 컨트롤러의 **NE1에 A16**을 사용합니다. 즉, FSMC bank1 NOR/PSRAM 1을 사용하며, 서브 뱅크에 따라 주소 매핑은 아래와과 같습니다.
