@@ -26,7 +26,7 @@
     - STM32F10X FSMC에 상세한 내용은 아래 문서명을 참고하세요
       +  ***TFT LCD interfacing with the high-density STM32F10xxx FSMC*** 
       +  ***RM0008 Reference Manual 507p~565p*** <br>
-      + 사실 FSMC 인터페이스의 적용은 TFT LCD 뿐만 아니라 다양하므로 그에 따라 제공되는 확장 기능이나 파라미터가 달라집니다. 본 프로젝트에서는 FSMC 인터페이스가 TFT LCD에 적용되므로 ***TFT LCD interfacing with the high-density STM32F10xxx FSMC*** 문서만 보셔도 STM32F10XX MCU를 이용한 전반적인 FSMC 인터페이스의 TFT LCD제어의 흐름을 이해하실 수 있습니다.
+      + 사실 FSMC 인터페이스의 적용은 TFT LCD 뿐만 아니라 매우 다양합니다. 또한 적용되는 외부 메모리에 따라 FSMC 인터페이스에서 제공되는 파라미터나 확장 기능이 달라집니다. 본 프로젝트에서는 FSMC 인터페이스를 TFT LCD에 적용하므로 ***TFT LCD interfacing with the high-density STM32F10xxx FSMC*** 어플리케이션 노트만 보셔도 STM32F10XX MCU를 이용한 전반적인 FSMC 인터페이스의 TFT LCD제어 흐름을 이해하실 수 있습니다.
   
    
     - TFT LCD모듈은 레귤레이터가 있기 때문에 VDD Pin에 3.3V 뿐만 아니라 5V로 전원공급이 가능합니다.<br>
@@ -54,7 +54,7 @@
     
 * NEx, NOE, NWE 앞에 붙은 **N은 Active Low**를 의미합니다.<br>
 * 본 프로젝트에서는 STM32F103VET6의 FSMC 컨트롤러의 **NE1에 A16**을 사용합니다. 즉, FSMC bank1 NOR/PSRAM 1을 사용하며, 서브 뱅크에 따라 주소 매핑은 아래와과 같습니다.
-* 참고로 뱅크1은 서브뱅크4개로 나눠지며 이와 관련된 자세한 사항은 ***RM0008 Reference Manual 511p*** 부터 참고하세요.<br><br>
+* 참고로 뱅크1은 서브뱅크4개로 나눠지며 이와 관련된 자세한 사항은 ***RM0008 Reference Manual 511p*** 부터 참고하세요.<br>
 
 ```C
 #define LCD_BASE0        		((uint32_t)0x60000000) //ILI9341_CMD_ADDR
