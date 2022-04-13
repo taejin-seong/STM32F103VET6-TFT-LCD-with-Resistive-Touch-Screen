@@ -47,10 +47,10 @@
 * **해당 초록색 박스 부분**은 LCD의 인텔 808 인터페이스와 MCU의 FSMC 인터페이스 부분입니다. 이를 통해 ILI9341 Driver IC를 제어합니다. <br>
 
   - FSMC [D0:D15] = FSMC **16bit** 데이터 버스
-  - FSMC NEx      = FSMC **C**hip **S**elect 
-  - FSMC NOE      = FSMC **O**utput **E**nable
-  - FSMC NWE      = FSMC **W**rite **E**nable
-  - FSMC Ax       = LCD Register와 LCD Data를 선택하기 위한 **Address line (0~25)** (LCD의 RS핀과 연결) High일때 레지스터 / Low일때 데이터 <br>
+  - FSMC NEx      = FSMC **C**hip **S**elect (LCD의 CS Pin과 연결)
+  - FSMC NOE      = FSMC **O**utput **E**nable (LCD의 RD Pin과 연결)
+  - FSMC NWE      = FSMC **W**rite **E**nable (LCD의 WR Pin과 연결)
+  - FSMC Ax       = LCD Register와 LCD Data를 선택하기 위한 **Address line (0~25)** (LCD의 RS Pin과 연결) High일때 레지스터 / Low일때 데이터 <br>
     
 * NEx, NOE, NWE 앞에 붙은 **N은 Active Low**를 의미합니다.<br>
 * 본 프로젝트에서는 STM32F103VET6의 FSMC 컨트롤러의 **NE1에 A16**을 사용합니다. 즉, FSMC bank1 NOR/PSRAM 1을 사용하며, 서브 뱅크에 따라 주소 매핑은 아래와과 같습니다.
@@ -60,6 +60,7 @@
 #define LCD_BASE0        		((uint32_t)0x60000000) //ILI9341_CMD_ADDR
 #define LCD_BASE1        		((uint32_t)0x60020000) //ILI9341_DATA_ADDR
 ``` 
+* **RST Pin**은 STM32F103VET의 NRST Pin에 연결되며 개발 보드 회로도를 참고하시면 HW적으로 리셋 스위치에 달려있습니다. 따라서 SW적으로 따로 리셋을 구현하지 않았습니다. <br>
 
 * **해당 주황색 박스 부분**은 SPI 인터페이스 부분입니다. SPI2를 사용하며, 이를 통해  XPT2406 touh IC를 제어합니다. <br>
   - PEN Pin은 터치 스크린의 인터럽트를 감지하며, 터치가 발생했을 때 Low로 떨어집니다.<br>
