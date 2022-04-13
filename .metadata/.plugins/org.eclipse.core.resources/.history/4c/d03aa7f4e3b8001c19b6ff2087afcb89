@@ -1,0 +1,79 @@
+/*
+ * menu.c
+ *
+ *  Created on: 2022. 4. 8.
+ *      Author: sungt
+ */
+
+#include "menu.h"
+#include "ili9341_lcd.h"
+
+
+
+
+//                                x     y    w   h
+uint16_t menuColordinate[][4]= { {0,    5,  30,  20},  //1st menu box size
+								 {66,   5,  30,  20},  //2nd menu box size
+								 {102,   5,  2,  20},  //3rd menu box size
+								 {106,   5,  2,  20},  //4th menu box size
+								 {108,   5,  2,  20},  //5th menu box size
+							   };
+
+char *menuText[]={"DRAW", "LOGO", "R", "G", "B"}; 			   //1st ~ 3th menu box name
+uint16_t menuBGColor[]={COLOR_BLUE,COLOR_BLUE,COLOR_BLUE,COLOR_BLUE,COLOR_BLUE,COLOR_BLUE}; //1st ~ 3th menu box color
+uint16_t selmenuBGColor=COLOR_GREEN; 					   //color when menu box is pressed
+
+
+void hideMenu()
+{
+	lcdFillRect(0, 0,lcdGetWidth(), 25, COLOR_BLACK);
+}
+
+void showMenu(uint8_t selectedIndex)
+{
+	lcdSetTextFont(&Font12);
+	if (selectedIndex > 0 && selectedIndex <= MENU_ITEMS)
+	{
+		if (activedMenuItem > 0 && activedMenuItem <= MENU_ITEMS)
+		{
+			int ti=activedMenuItem-1;
+			lcdSetTextColor(COLOR_WHITE, menuBGColor[ti]);
+			lcdFillRect(menuColordinate[ti][0], menuColordinate[ti][1], menuColordinate[ti][2], menuColordinate[ti][3], menuBGColor[ti]);
+			lcdSetCursor(menuColordinate[ti][0]+6, menuColordinate[ti][1]+4);
+			lcdPrintf(menuText[ti]);
+		}
+		activedMenuItem=selectedIndex;
+		selectedIndex--;
+		lcdSetTextColor(COLOR_WHITE, selmenuBGColor);
+		lcdFillRect(menuColordinate[selectedIndex][0], menuColordinate[selectedIndex][1], menuColordinate[selectedIndex][2], menuColordinate[selectedIndex][3], selmenuBGColor);
+		lcdSetCursor(menuColordinate[selectedIndex][0]+6, menuColordinate[selectedIndex][1]+4);
+		lcdPrintf(menuText[selectedIndex]);
+	}
+	else
+	{
+		hideMenu();
+		activedMenuItem=0;
+		for (int i=0;i<MENU_ITEMS;i++)
+		{
+			lcdSetTextColor(COLOR_WHITE, menuBGColor[i]);
+			lcdFillRect(menuColordinate[i][0], menuColordinate[i][1], menuColordinate[i][2], menuColordinate[i][3], menuBGColor[i]);
+			lcdSetCursor(menuColordinate[i][0]+6, menuColordinate[i][1]+4);
+			lcdPrintf(menuText[i]);
+		}
+	}
+}
+uint8_t getTouchMenItem(uint16_t x, uint16_t y)
+{
+	uint8_t ret = 0;
+
+	for (int i=0;i<MENU_ITEMS;i++)
+	{
+		if (x > menuColordinate[i][0] && x < menuColordinate[i][0]+menuColordinate[i][2] &&
+				y > menuColordinate[i][1] && y < menuColordinate[i][1]+menuColordinate[i][3])
+		{
+			ret = i+1;
+			break;
+		}
+	}
+	return ret;
+}

@@ -1,0 +1,18 @@
+/*
+ * ili9341_lcd.h
+ *
+ *  Created on: 2022. 4. 5.
+ *      Author: sungt
+ */
+
+#ifndef SRC_COMMON_HW_INCLUDE_ILI9341_LCD_H_
+#define SRC_COMMON_HW_INCLUDE_ILI9341_LCD_H_
+
+#include "hw_def.h"
+
+
+#ifdef _USE_HW_ILI9341_LCD
+
+#endif /* _USE_HW_ILI9341_LCD */
+
+#endif /* SRC_COMMON_HW_INCLUDE_ILI9341_LCD_H_ */

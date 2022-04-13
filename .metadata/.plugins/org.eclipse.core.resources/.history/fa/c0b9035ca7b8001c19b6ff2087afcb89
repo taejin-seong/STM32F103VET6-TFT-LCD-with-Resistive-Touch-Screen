@@ -1,0 +1,13 @@
+/*
+ * lv_conf.h
+ *
+ *  Created on: 2022. 4. 10.
+ *      Author: sungt
+ */
+
+#ifndef SRC_COMMON_CORE_LVGL_LV_CONF_H_
+#define SRC_COMMON_CORE_LVGL_LV_CONF_H_
+
+
+
+#endif /* SRC_COMMON_CORE_LVGL_LV_CONF_H_ */

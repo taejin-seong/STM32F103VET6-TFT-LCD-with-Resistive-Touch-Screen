@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
+		<item key="selection" value="demo"/>
+		<item key="casesensitive" value="false"/>
+		<item key="wholeword" value="false"/>
+		<item key="isRegEx" value="false"/>
+		<list key="findhistory">
+			<item value="tempIgnoralEXTI"/>
+			<item value="demo"/>
+			<item value="activedMenuItem"/>
+			<item value="cx"/>
+			<item value="hspi-&gt;Instance-&gt;D"/>
+			<item value="isCalbriating"/>
+			<item value="XPT2046_TouchGetRawCoordinates"/>
+			<item value="menuActived"/>
+		</list>
+		<list key="replacehistory">
+		</list>
+	</section>
+</section>

@@ -1,0 +1,44 @@
+/*
+ * ili9341_touch.h
+ *
+ *  Created on: 2022. 4. 7.
+ *      Author: sungt
+ */
+
+#include "hw_def.h"
+
+
+#ifdef _USE_HW_XPT2046_TOUCH
+
+/*** Redefine if necessary ***/
+
+//TODO: SPI 연결 후에  핀 설정하고 다시 코드 일부  수정 할 것 ..
+
+// Warning! Use SPI bus with < 2.5 Mbit speed, better ~650 Kbit to be save.
+#define XPT2046_TOUCH_SPI_PORT hspi2
+extern SPI_HandleTypeDef XPT2046_TOUCH_SPI_PORT;
+
+#define XPT2046_TOUCH_IRQ_Pin       GPIO_PIN_4 // Arduino D5
+#define XPT2046_TOUCH_IRQ_GPIO_Port GPIOB
+#define XPT2046_TOUCH_CS_Pin        GPIO_PIN_10 // Arduino D2
+#define XPT2046_TOUCH_CS_GPIO_Port  GPIOA
+
+// change depending on screen orientation
+#define XPT2046_TOUCH_SCALE_X 240
+#define XPT2046_TOUCH_SCALE_Y 320
+
+// to calibrate uncomment UART_Printf line in ili9341_touch.c
+#define XPT2046_TOUCH_MIN_RAW_X 1500
+#define XPT2046_TOUCH_MAX_RAW_X 31000
+#define XPT2046_TOUCH_MIN_RAW_Y 3276
+#define XPT2046_TOUCH_MAX_RAW_Y 30110
+
+// call before initializing any SPI devices
+void XPT2046_TouchUnselect();
+
+bool XPT2046_TouchPressed();
+bool XPT2046_TouchGetCoordinates(uint16_t* x, uint16_t* y);
+
+
+
+#endif /* _USE_HW_XPT2046_TOUCH */

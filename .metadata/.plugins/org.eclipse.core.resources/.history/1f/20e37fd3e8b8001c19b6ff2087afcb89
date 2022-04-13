@@ -1,0 +1,248 @@
+/*
+ * ap.c
+ *
+ *  Created on: Mar 14, 2021
+ *      Author: sungt
+ *
+ *
+ * based:
+ * https://rfwumcu.blogspot.com/2021/02/interface-tft-display-with-stm32-in-16.html
+ *
+ *
+ */
+
+#ifndef SRC_AP_AP_C_
+#define SRC_AP_AP_C_
+
+
+#include "ap.h"
+#include "lcd_demo.h"
+
+
+//#define LCD_DEMO_TEST
+//#define LCD_ROTATION_TOUCH_TEST
+#define LCD_MENU_TOUCH_TEST
+
+
+
+ void apInit(void)
+{
+	 ;
+}
+
+
+
+void apBoardLedTest(void)
+{
+
+  while(1)
+  {
+    ledToggle(_DEF_LED1);
+    ledToggle(_DEF_LED2);
+    delay_ms(100);
+  }
+
+}
+
+
+
+
+#ifdef  LCD_MENU_TOUCH_TEST
+
+uint8_t penWidth		=1;
+uint8_t tempIgnoralEXTI	=0;
+uint16_t cx 			=0;
+uint16_t cy 			=0;
+bool isCalbriating;
+
+#endif /* LCD_MENU_TOUCH_TEST */
+
+
+
+
+
+
+#ifdef  LCD_MENU_TOUCH_TEST
+
+void HAL_GPIO_EXTI_Callback (uint16_t GPIO_Pin)
+{
+ if (GPIO_Pin == T_PEN_Pin)
+ {
+	 if (tempIgnoralEXTI || isCalbriating) return;
+
+
+	  if(XPT2046_TouchPressed())
+	  {
+		  tempIgnoralEXTI=1;
+		  XPT2046_TouchGetCoordinates(&cx, &cy);
+
+		  if (menuActived)
+		  {
+			  uint8_t i=getTouchMenItem(cx, cy);
+			  if (i > 0)
+			  {
+				 showMenu(i);
+				  switch (i)
+				  {
+					case DRAWINGITEM:
+						lcdFillRect(1, 26, lcdGetWidth()-2, lcdGetHeight()-2, COLOR_BLACK);
+						lcdDrawRect(1, 26, lcdGetWidth()-2, lcdGetHeight()-2, COLOR_WHITE);
+					    break;
+
+					case LOGOITEM:
+						showMenu(i);
+						break;
+
+					case RITEM:
+						showMenu(i);
+						break;
+
+					case GITEM:
+
+						showMenu(i);
+						break;
+
+					case BITEM:
+						showMenu(i);
+						break;
+				  }
+			  }
+		  }
+		  if (activedMenuItem == DRAWINGITEM)
+		  {
+			  if (cx > 1 && cx < lcdGetWidth()-1 && cy > 26 && cy < lcdGetHeight()-1 )
+								  lcdFillCircle(cx, cy, penWidth, COLOR_GREENYELLOW);
+		  }
+		  tempIgnoralEXTI=0;
+	  }
+ }
+}
+
+#endif /* LCD_MENU_TOUCH_TEST */
+
+
+
+
+
+void apFSMCTFTLCDTest(void)
+{
+
+#ifdef LCD_DEMO_TEST
+/*
+ * 22 / 04 / 11
+ * LCD Demo TEST
+ ***********************************/
+	  int i = 0;
+
+	  while (1)
+	  {
+		  demoLCD(i);
+		  i++;
+	  }
+
+#endif /* LCD_DEMO_TEST */
+
+
+
+
+#ifdef LCD_ROTATION_TOUCH_TEST
+/*
+ * 22 / 04 /11
+ * LCD Rotation TEST
+ * *********************************/
+
+
+	lcdFillRGB(COLOR_BLACK);
+
+	while (1)
+	{
+		if(XPT2046_TouchPressed())
+		{
+			lcdFillRGB(COLOR_BLACK);
+		    lcdSetOrientation((lcdGetOrientation()+1)%4);
+			testDrawImage();
+
+		}
+	}
+
+
+#endif /* LCD_ROTATION_TEST */
+
+
+
+
+
+#ifdef  LCD_MENU_TOUCH_TEST
+/*
+ * 22 / 04 / 11
+ * LCD MENU TOUCH TEST
+ * *********************************/
+
+	 activedMenuItem=0;
+     menuActived=0;
+
+	 lcdFillRGB(COLOR_BLACK);
+//	 lcdSetOrientation(LCD_ORIENTATION_LANDSCAPE);
+	 lcdSetOrientation(LCD_ORIENTATION_PORTRAIT_MIRROR);
+
+
+	 /************** start Calibrating **************/
+
+	 isCalbriating = true;
+
+	 showMessage("Start Calibration",2);
+	 //HAL_Delay(2000);
+
+	 while(!XPT2046_TouchCalibration())
+	 {
+		showMessage("Calibration Error!!!\n Try again", 2);
+	 }
+
+	 isCalbriating = false;
+
+	 showMessage("Calibrate\n successfully",2);
+
+	 menuActived = 1;
+
+	/************** End Calibrating **************/
+
+
+
+	  showMenu(0);
+	  while (1)
+	 {
+		switch(activedMenuItem)
+		{
+
+			case DRAWINGITEM:
+				break;
+
+			case LOGOITEM:
+				testDrawImage();
+				showMenu(0);
+				break;
+
+			case RITEM:
+				lcdFillRGB(COLOR_RED);
+				showMenu(0);
+				break;
+
+			case GITEM:
+				lcdFillRGB(COLOR_GREEN);
+				showMenu(0);
+				break;
+
+			case BITEM:
+				lcdFillRGB(COLOR_BLUE);
+				showMenu(0);
+				break;
+		}
+	 }
+
+
+#endif /* LCD_MENU_TOUCH_TEST */
+}
+
+
+
+#endif /* SRC_AP_AP_C_ */

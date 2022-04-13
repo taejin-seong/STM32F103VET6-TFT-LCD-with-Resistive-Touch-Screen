@@ -1,0 +1,13 @@
+/*
+ * lcd_test_func.h
+ *
+ *  Created on: 2022. 4. 8.
+ *      Author: sungt
+ */
+
+#ifndef SRC_AP_LCD_TEST_FUNC_H_
+#define SRC_AP_LCD_TEST_FUNC_H_
+
+
+
+#endif /* SRC_AP_LCD_TEST_FUNC_H_ */

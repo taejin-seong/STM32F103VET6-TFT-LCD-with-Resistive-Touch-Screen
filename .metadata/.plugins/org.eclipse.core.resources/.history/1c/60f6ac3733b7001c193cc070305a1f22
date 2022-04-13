@@ -1,0 +1,31 @@
+/*
+ * fonts.h
+ *
+ *  Created on: 2022. 4. 7.
+ *      Author: sungt
+ */
+
+#ifndef SRC_COMMON_CORE_FONTS_H_
+#define SRC_COMMON_CORE_FONTS_H_
+
+#ifndef __FONTS_H__
+#define __FONTS_H__
+
+#include "def.h"
+
+typedef struct {
+	
+    const uint8_t width;
+    uint8_t height;
+    const uint16_t *data;
+
+} FontDef;
+
+
+extern FontDef Font_7x10;
+extern FontDef Font_11x18;
+extern FontDef Font_16x26;
+
+#endif // __FONTS_H__
+
+#endif /* SRC_COMMON_CORE_FONTS_H_ */

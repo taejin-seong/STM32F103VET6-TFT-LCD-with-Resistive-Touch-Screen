@@ -1,0 +1,14 @@
+lcd_demo.c:12:6:demoLCD	32	static
+lcd_demo.c:105:15:testFillScreen	16	static
+lcd_demo.c:144:15:testText	16	static
+lcd_demo.c:175:15:testLines	64	static
+lcd_demo.c:235:15:testFastLines	40	static
+lcd_demo.c:248:15:testRects	56	static
+lcd_demo.c:267:15:testFilledRects	64	static
+lcd_demo.c:290:15:testFilledCircles	40	static
+lcd_demo.c:308:15:testCircles	40	static
+lcd_demo.c:329:15:testTriangles	72	static
+lcd_demo.c:350:15:testFilledTriangles	72	static
+lcd_demo.c:368:15:testRoundRects	64	static
+lcd_demo.c:387:15:testFilledRoundRects	64	static
+lcd_demo.c:405:15:testDrawImage	16	static

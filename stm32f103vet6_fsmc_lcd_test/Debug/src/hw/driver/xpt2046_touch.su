@@ -1,0 +1,6 @@
+xpt2046_touch.c:22:13:XPT2046_TouchSelect	8	static
+xpt2046_touch.c:27:6:XPT2046_TouchUnselect	8	static
+xpt2046_touch.c:32:6:XPT2046_TouchPressed	8	static
+xpt2046_touch.c:37:6:XPT2046_Init	8	static
+xpt2046_touch.c:42:6:XPT2046_TouchGetCoordinates	56	static
+xpt2046_touch.c:102:6:XPT2046_TouchCalibration	48	static

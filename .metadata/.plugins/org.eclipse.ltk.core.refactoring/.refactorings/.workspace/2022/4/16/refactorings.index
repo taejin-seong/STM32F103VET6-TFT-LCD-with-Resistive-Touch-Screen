@@ -1,0 +1,4 @@
+1649579070934	Delete 2 resources
+1649579517233	Delete resource 'stm32f103vet6_fsmc_lcd_test/src/common/core/lvgl'
+1649579667491	Delete resource 'stm32f103vet6_fsmc_lcd_test/src/hw/driver/XPT2046.C'
+1649585126511	Delete resource 'stm32f103vet6_fsmc_lcd_test/src/hw/driver/xpt2046.c'
