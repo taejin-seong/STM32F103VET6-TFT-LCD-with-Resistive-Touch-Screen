@@ -9,6 +9,23 @@
 #include "ili9341_lcd.h"
 
 
+
+#ifdef  TEST_SELECT
+
+/* NOT USE MENU */
+
+#define MENU_ITEMS 0
+
+uint16_t menuColordinate[][4]= { };
+
+char *menuText[]={};
+uint16_t menuBGColor[]={};
+uint16_t selmenuBGColor = 0;
+
+#endif /* TEST_SELECT */
+
+
+
 /*
  * @ apLcdTouchMenuTest Parameter
  * @ Please See ap.c

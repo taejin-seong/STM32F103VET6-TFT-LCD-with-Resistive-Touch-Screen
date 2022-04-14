@@ -39,6 +39,7 @@ void apBoardLedTest(void)
 
     ledToggle(_DEF_LED1);
     ledToggle(_DEF_LED2);
+    delay_ms(100);
   }
 
 }

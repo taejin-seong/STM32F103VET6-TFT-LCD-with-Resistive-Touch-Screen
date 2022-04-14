@@ -50,18 +50,34 @@
 
 //TODO: 테스트 함수 선택 (5)
 
-/* @ Select the test to run
- * @ Please See ap.c
- -------------------------------------------*/
-//#define BOARD_LED_TEST
+/*
+ *  @ 테스트 할 함수 범위 결정
+ * - #define TEST_SELECT 주석 해제 시 menu를 사용하지 않는 테스트 함수 활성
+ * - #define TEST_SELECT 주석 설정 시 menu를 사용하는 테스트 함수 활성
+ *
+ */
+#define TEST_SELECT
+
+
+#ifdef  TEST_SELECT
+/* 활성화 되었다면 테스트할 함수의 주석을 해제하세요 */
+
+#define BOARD_LED_TEST
 //#define LCD_DEMO_TEST
 //#define LCD_TOUCH_ROTATION_TEST
 
+#endif /* TEST_SELECT */
 
-/* @ 둘 중 하나는 주석을 해제해야만 빌드가 정상적으로 완료됩니다.
- -------------------------------------------*/
-#define LCD_TOUCH_MENU_TEST
+
+#ifndef TEST_SELECT
+/* 활성화 되었다면 테스트할 함수의 주석을 해제하세요 */
+
+//#define LCD_TOUCH_MENU_TEST
 //#define LCD_TOUCH_BOARD_LED_TEST
+
+#endif /* TEST_SELECT */
+
+
 
 
 
