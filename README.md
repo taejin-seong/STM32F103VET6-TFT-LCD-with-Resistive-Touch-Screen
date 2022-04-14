@@ -4,7 +4,8 @@
 ![LCD Rotation Test](https://user-images.githubusercontent.com/70312248/163416774-4c226220-b31e-4540-afee-9e51193cc7cb.gif)
 <br><br>
 
-일부 테스트 과정 영상입니다. 본 프로젝트는 [해당 프로젝트](https://github.com/taburyak/STM32-ILI9341-320x240-FSMC-Library?)를 참고하였으며 이를 STM32F103VET6 MCU에 포팅하였습니다. <br> 
+일부 테스트 과정 영상입니다.<br>
+본 프로젝트는 [해당 프로젝트](https://github.com/taburyak/STM32-ILI9341-320x240-FSMC-Library?)를 참고하였으며 이를 STM32F103VET6 MCU에 포팅하였습니다. <br> 
 <b> 22/04/15 :</b> 추가적으로 SD 카드를 사용하여 BMP, JPEG 파일 출력과 한글 폰트 구현 등을 고려하고 있습니다.　
 
 <br>
