@@ -222,4 +222,5 @@
 ```
 <br>
 
-## 참고 <br>
+## 참고 및 이미지 출처 <br>
+개발 보드 이미지 출처 : https://coyoteugly.tistory.com/108
