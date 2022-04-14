@@ -168,7 +168,7 @@
 <br><br>
 
 <p align="center">
-<img src="https://user-images.githubusercontent.com/70312248/163380131-0fddebba-aebe-45e2-ace0-611bca7d9b79.png" width="400" height="650"/> 　　　
+<img src="https://user-images.githubusercontent.com/70312248/163380131-0fddebba-aebe-45e2-ace0-611bca7d9b79.png" width="400" height="650"/>
 <img src="https://user-images.githubusercontent.com/70312248/163380006-6e553c11-4ee7-4587-baf8-33317a4d59a8.png" width="400" height="650"/> 
 </p>
   <br>
