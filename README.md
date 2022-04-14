@@ -1,3 +1,14 @@
+
+　　　　　　　　　　　![LCD Led On Off Test](https://user-images.githubusercontent.com/70312248/163413307-676e95ee-4d4b-4c19-8881-ed1612eaeae9.gif)
+![LCD Drawing Test](https://user-images.githubusercontent.com/70312248/163414131-68e9beda-24d9-431a-9dba-54ef4454bf09.gif)
+![LCD Rotation Test](https://user-images.githubusercontent.com/70312248/163416774-4c226220-b31e-4540-afee-9e51193cc7cb.gif)
+<br><br>
+
+일부 테스트 과정 영상입니다. 본 프로젝트는 [해당 프로젝트](https://github.com/taburyak/STM32-ILI9341-320x240-FSMC-Library?)를 참고하였으며 이를 STM32F103VET6 MCU에 포팅하였습니다. <br> 
+<b> 22/04/15 :</b> 추가적으로 SD 카드를 사용하여 BMP, JPEG 파일 출력과 한글 폰트 구현 등을 고려하고 있습니다.　
+
+<br>
+
 ## 개발 환경<br>
 ### IDE
 * STM32CubeIDE 1.6.0 <br>
@@ -26,7 +37,7 @@
     - STM32F10X FSMC에 상세한 내용은 아래 문서명을 참고하세요
       +  ***TFT LCD interfacing with the high-density STM32F10xxx FSMC*** 
       +  ***RM0008 Reference Manual 507p~565p*** <br>
-      + 사실 FSMC 인터페이스의 적용은 TFT LCD 뿐만 아니라 매우 다양합니다. 또한 적용되는 외부 메모리에 따라 FSMC 인터페이스에서 제공되는 파라미터나 확장 기능이 달라집니다. 본 프로젝트에서는 FSMC 인터페이스를 TFT LCD에 적용하므로 ***TFT LCD interfacing with the high-density STM32F10xxx FSMC*** 어플리케이션 노트만 보셔도 STM32F10XX MCU를 이용한 전반적인 FSMC 인터페이스의 TFT LCD제어 흐름을 이해하실 수 있습니다.
+      +  FSMC 인터페이스는 적용되는 외부 메모리에 따라 파라미터나 확장 기능이 추가 될 수 있습니다. 본 프로젝트에서는 FSMC 인터페이스를 TFT LCD에 적용하므로 ***TFT LCD interfacing with the high-density STM32F10xxx FSMC*** 어플리케이션 노트를 통해 STM32F10XX MCU의 FSMC 인터페이스를 이용한 TFT LCD제어 방식의 흐름을 전반적으로 이해하실 수 있습니다.
   
    
     - TFT LCD모듈의 레귤레이터로 인해 VDD Pin에 3.3V 뿐만 아니라 5V로 전원공급이 가능합니다.<br>
@@ -208,3 +219,6 @@
 
 #endif /* TEST_SELECT */
 ```
+<br>
+
+## 참고 <br>
