@@ -21,7 +21,7 @@
   
   + :pushpin: [개발보드 회로도](https://github.com/taejin-seong/STM32F103VET6-TFT-LCD-with-Resistive-Touch-Screen/blob/master/STM32F103VET6%20Dev%20Board%20Schematic/0001.jpg)<br>
     - 제공되는 개발보드 회로도를 확인해 본 결과, 회로도에 표기되어있는 커넥터 및 핀 헤더명이 실제 보드의 커넥터 및 핀 헤더명과 서로 다른 것을 확인하였습니다. **이를 주의하시고** 회로도를  보시길 바랍니다. <br><br>
-    - 사용된 개발보드에서는 FSMC 인터페이스의 TFT LCD를 쉽게 사용할 수 있게 핀을 매핑하여 16X2 헤더로 따로 빼놓았습니다. 아래 그림을 참고하시길 바랍니다.<br><br>
+    - 사용된 개발보드에서는 FSMC 인터페이스와 FSMC용 TFT LCD 모듈을 쉽게 연결하여 사용할 수 있게 핀을 매핑하여 16X2 헤더로 따로 빼놓았습니다. 아래 그림을 참고하시길 바랍니다.<br><br>
      <p align="center">
      <img src="https://user-images.githubusercontent.com/70312248/163129584-df167919-aa90-44d1-8b6c-c36210542ddc.png" width="450" height="330"/>     
      <img src="https://user-images.githubusercontent.com/70312248/163130781-470699c0-dcd2-41bd-8334-20412fc8dda7.png" width="400" height="300"/> </p><br>
