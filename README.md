@@ -151,4 +151,60 @@
 </div>
 </details>
 
+<br><br>
 
+## 테스트 파일 <br>
+### 구성 및 경로
+* 기본적으로 구현한 테스트 함수는 다음과 같습니다 <br>
+
+  + stm32f103vet6_fsmc_lcd_test → src → ap → ap.c → <b>void apBoardLedTest(void){...} </b><br>
+  + stm32f103vet6_fsmc_lcd_test → src → ap → ap.c → <b>void apLcdDemoTest(void){...} </b><br>
+  + stm32f103vet6_fsmc_lcd_test → src → ap → ap.c → <b>void apLcdTouchMenuTest(void){...} </b><br>
+  + stm32f103vet6_fsmc_lcd_test → src → ap → ap.c → <b>void apLcdTouchBoardLedTest(void){...} </b><br>
+
+* `ap.c` 함수에서 제공하는 테스트 외에 다양한 테스트 케이스를 구현하고자 하시면 `ili9341_lcd.c/.h`와 `xpt2046_touch.c/.h`의 함수를 참고하여 응용하세요.<br>
+
+* 응용한 예제는 `lcd_demo.c/.h`를 참고하세요. 
+<br><br>
+
+<p align="center">
+<img src="https://user-images.githubusercontent.com/70312248/163380131-0fddebba-aebe-45e2-ace0-611bca7d9b79.png" width="400" height="650"/> 　　　
+<img src="https://user-images.githubusercontent.com/70312248/163380006-6e553c11-4ee7-4587-baf8-33317a4d59a8.png" width="400" height="650"/> 
+</p>
+  <br>
+  
+### 실행 방법 <br>
+
+* 기본 테스트 함수를 빌드하고 실행시키기 위해서는 `stm32f103vet6_fsmc_lcd_test → src → common → def.h`에서  **(1).** #define TEST_SELECT의 주석을 해제 또는 설정하여 테스트 함수 범위를 결정하고,  **(2).** 활성화된 범위 내에 빌드 시킬 테스트 함수의 주석을 해제해야합니다.
+
+<br>
+
+```C
+//TODO: 테스트 함수 선택 (5)
+
+/*
+ *  @ 테스트 할 함수 범위 결정
+ * - #define TEST_SELECT 주석 해제 시 menu를 사용하지 않는 테스트 함수 활성
+ * - #define TEST_SELECT 주석 설정 시 menu를 사용하는 테스트 함수 활성
+ *
+ */
+#define TEST_SELECT
+
+#ifdef  TEST_SELECT
+/* 활성화 되었다면 테스트할 함수의 주석을 해제하세요 */
+
+#define BOARD_LED_TEST
+//#define LCD_DEMO_TEST
+//#define LCD_TOUCH_ROTATION_TEST
+
+#endif /* TEST_SELECT */
+
+
+#ifndef TEST_SELECT
+/* 활성화 되었다면 테스트할 함수의 주석을 해제하세요 */
+
+//#define LCD_TOUCH_MENU_TEST
+//#define LCD_TOUCH_BOARD_LED_TEST
+
+#endif /* TEST_SELECT */
+```
