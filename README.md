@@ -29,7 +29,7 @@
       + 사실 FSMC 인터페이스의 적용은 TFT LCD 뿐만 아니라 매우 다양합니다. 또한 적용되는 외부 메모리에 따라 FSMC 인터페이스에서 제공되는 파라미터나 확장 기능이 달라집니다. 본 프로젝트에서는 FSMC 인터페이스를 TFT LCD에 적용하므로 ***TFT LCD interfacing with the high-density STM32F10xxx FSMC*** 어플리케이션 노트만 보셔도 STM32F10XX MCU를 이용한 전반적인 FSMC 인터페이스의 TFT LCD제어 흐름을 이해하실 수 있습니다.
   
    
-    - TFT LCD모듈은 레귤레이터가 있기 때문에 VDD Pin에 3.3V 뿐만 아니라 5V로 전원공급이 가능합니다.<br>
+    - TFT LCD모듈의 레귤레이터로 인해 VDD Pin에 3.3V 뿐만 아니라 5V로 전원공급이 가능합니다.<br>
     - 해당 TFT LCD모듈은 8-bit/16-bit 데이터 버스의 **인텔 808 (I80) 인터페이스**를 지원하며 이를 통해 MCU의 FSMC 컨트롤러로 ILI9341 driver IC (LCD 드라이버)를 병렬 제어할 수 있습니다. **기본적으로 16-bit 데이터 버스** 이며 아래 그림과 같이 R8, R16 저항을 통해 8-bit로 FSMC 인터페이스 시킬 수 있습니다. <br><br>
     
     <p align="center">
@@ -71,10 +71,84 @@
   - SD_CS Pin이 Low가 되면 SD카드가 선택됩니다.<br>  
   - 본 프로젝트에서는 SD카드를 이용하지 않습니다.<br>
 
-* **BL Pin**은 LCD의 백라이트 핀으로 상태가 set이 되어야 켜집니다. 추가적으로 PWM을 지원하는 핀을 이용하여 BL핀을 연결한다면 백라이트의 밝기를 조절할 수 있습니다.
+* **BL Pin**은 LCD의 백라이트 핀으로 상태가 set이 되어야 켜집니다. 추가적으로 PWM을 지원하는 핀을 이용하여 BL핀을 연결한다면 백라이트의 밝기를 조절할 수 있습니다.<br>
+
+* **Dev Board Pin Name**은 사용된 개발 보드 실크 스크린 레이어에 표기되어있는 핀 명을 의미합니다.
 
 <br>
 
  [크게 보기](https://github.com/taejin-seong/STM32F103VET6-TFT-LCD-with-Resistive-Touch-Screen/blob/master/imgs/%ED%95%80%20%EC%97%B0%EA%B2%B0.png)<br>
 <p align="center"><img src="https://github.com/taejin-seong/STM32F103VET6-TFT-LCD-with-Resistive-Touch-Screen/blob/master/imgs/%ED%95%80%20%EC%97%B0%EA%B2%B0.png"> </p>
 <br><br>
+
+## STM32CubeMX 설정<br>
+### Clock Configuration
+<details>
+<summary>📌</summary><br> 
+<div markdown="1">
+<img src="https://user-images.githubusercontent.com/70312248/163349493-3b415043-77f2-4172-8672-8c20abd6c71d.png" width="1180" height="900"/> <br>
+<br><br>
+</div>
+</details>
+
+
+<hr/>
+
+### Pinout<br>
+<details>
+<summary>📌</summary><br>  
+<div markdown="1">
+  <p align="center">
+<img src="https://user-images.githubusercontent.com/70312248/163349863-c322a6f0-4d13-4955-b0c6-1e8b27f1e167.png" width="800" height="700"/> <br>
+  </p>
+<br><br>
+</div>
+</details>
+
+<hr/>
+
+### Peripheral & Core Configuration<br>
+#### 1. FSMC
+
+<details>
+<summary>📌</summary><br>
+<div markdown="1">
+<img src="https://user-images.githubusercontent.com/70312248/163350563-51ef352c-6107-4d3f-8323-ab2253360c92.png" width="1000" height="800"/>
+<br><br>
+</div>
+</details>
+
+
+#### 2. SPI2
+
+<details>
+<summary>📌</summary><br>
+<div markdown="1">
+<img src="https://user-images.githubusercontent.com/70312248/163351944-e0abb3fd-6c8e-4c03-bcd1-81b110243fe3.png" width="1000" height="800"/>
+<br><br>
+</div>
+</details>
+
+
+#### 3. GPIO
+<details>
+<summary>📌</summary><br> 
+• PC6 (LED2), PC7 (LED1)은 개발 보드 내에 연결된 2개의 LED Pin을 의미합니다.  <br><br>
+<div markdown="1">
+<img src="https://user-images.githubusercontent.com/70312248/163352117-eb0dbbf1-8c57-40b9-ac71-922561619d2b.png" width="1000" height="800"/> 
+<br><br>
+</div>
+</details>
+
+
+
+#### 5. NVIC
+<details>
+<summary>📌</summary><br>  
+<div markdown="1">
+<img src="https://user-images.githubusercontent.com/70312248/163352717-600451ba-9acd-45be-8063-908841b784ce.png" width="1000" height="800"/> 
+<br><br>
+</div>
+</details>
+
+
