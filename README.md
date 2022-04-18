@@ -43,7 +43,7 @@
   
    
     - TFT LCD모듈의 레귤레이터로 인해 VDD Pin에 3.3V 뿐만 아니라 5V로 전원공급이 가능합니다.<br>
-    - 해당 TFT LCD모듈은 8-bit/16-bit 데이터 버스의 **인텔 808 (I80) 인터페이스**를 지원하며 이를 통해 MCU의 FSMC 컨트롤러로 ILI9341 driver IC (LCD 드라이버)를 병렬 제어할 수 있습니다. **기본적으로 16-bit 데이터 버스** 이며 아래 그림과 같이 R8, R16 저항을 통해 8-bit로 FSMC 인터페이스 시킬 수 있습니다. <br><br>
+    - 해당 TFT LCD모듈은 8-bit/16-bit 데이터 버스의 **인텔 808 (I80) 인터페이스**를 지원하며 이를 통해 MCU의 FSMC 인터페이스로 ILI9341 driver IC (LCD 드라이버)를 병렬 제어할 수 있습니다. **기본적으로 16-bit 데이터 버스** 이며 아래 그림과 같이 R8, R16 저항을 통해 8-bit로 FSMC 인터페이스 시킬 수 있습니다. <br><br>
     
     <p align="center">
     <img src="https://user-images.githubusercontent.com/70312248/163138148-869e9ddc-a826-4a44-9d43-6ede85dcafac.png" width="650" height="450"/> </p><br>  
