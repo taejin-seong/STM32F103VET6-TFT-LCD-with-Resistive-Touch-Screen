@@ -241,7 +241,7 @@
 <br><br>
   
 • 최종적으로 아래와 같은 폴더 상태가 됩니다. <br><br>
-<img src="https://user-images.githubusercontent.com/70312248/166665097-75e0de2d-5408-4d7c-8544-dc5f011807af.png" width="100" height="35"/> 
+<img src="https://user-images.githubusercontent.com/70312248/166665097-75e0de2d-5408-4d7c-8544-dc5f011807af.png" width="100" height="30"/> 
 <br><br><br>
   
 </div>		
