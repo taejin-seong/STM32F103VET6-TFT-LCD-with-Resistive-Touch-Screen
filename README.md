@@ -225,5 +225,27 @@
 ```
 <br>
 
-## 참고 및 이미지 출처 <br>
+## 참고 <br>
+프로젝트를 빌드할 때는 다음 경로에 있는 폴더를 빌드 및 디버그 항목에서 **제외**해야 정상적으로 프로젝트가 빌드됩니다. <br>
+* **`stm32f411ceu6_fw_module → src → lib → Core`**
+
+#### How to exclude
+<details>
+  <summary>:pushpin:</summary><br>
+<div markdown="1">
+  • Core 폴더를 클릭하고 다음 단계를 진행합니다. <br><br>
+　　　　<img src="https://user-images.githubusercontent.com/70312248/166666504-b65bb2b8-3d73-4d9b-8022-54a35c26f02e.png" width="450" height="550"/> 
+ 　　　
+<img src="https://user-images.githubusercontent.com/70312248/166665088-0c16c066-1b22-406a-b485-4e3af1d21884.png" width="330" height="450"/> 
+<br><br><br>
+  
+• 최종적으로 아래와 같은 폴더 상태가 됩니다. <br><br>
+<img src="https://user-images.githubusercontent.com/70312248/166665097-75e0de2d-5408-4d7c-8544-dc5f011807af.png" width="100" height="35"/> 
+<br><br><br>
+  
+</div>		
+</details>
+<br>
+
+## 출처 <br>
 개발 보드 이미지 출처 : https://coyoteugly.tistory.com/108
